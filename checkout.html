@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> <!--JQuery library-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <!--Popper JS library-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--Bootstrap JS library-->
+    <link rel="stylesheet" href="styles.css">
+    <title>Checkout</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="checkout-header text-center">
+            <h2 class="font-weight-bold">Checkout</h2>
+            <p>Review your items before completing the purchase</p>
+        </div>
+
+        <div class="card p-4 mt-4 shadow-sm">
+            <h4 class="mb-4">Order Summary</h4>
+            <div id="order-summary"></div>
+            <p class="mt-4"><strong>Total:</strong> <span id="total-amount"
+                    class="text-primary font-weight-bold">₹0</span></p>
+            <button id="checkout-button" class="btn btn-primary btn-block mt-3" data-toggle="modal"
+                data-target="#paymentModal">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title font-weight-bold" id="paymentModalLabel">Payment Options</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="payment-form">
+                        <!-- Payment Type Selection -->
+                        <div class="form-group">
+                            <label for="paymentType">Choose Payment Method</label>
+                            <select class="form-control" id="paymentType">
+                                <option value="" selected disabled>Select an option</option>
+                                <option value="card">Credit/Debit Card</option>
+                                <option value="upi">UPI</option>
+                            </select>
+                        </div>
+
+                        <!-- Card Payment Details -->
+                        <div id="cardDetails" class="payment-details" style="display: none;">
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" class="form-control" id="cardNumber"
+                                    placeholder="1234 5678 9123 4567">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" class="form-control" id="cvv" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UPI Payment Details -->
+                        <div id="upiDetails" class="payment-details" style="display: none;">
+                            <div class="form-group">
+                                <label for="upiId">UPI ID</label>
+                                <input type="text" class="form-control" id="upiId" placeholder="example@upi">
+                            </div>
+                        </div>
+
+                        <!-- Confirm Payment Button -->
+                        <button type="submit" class="btn btn-success btn-block mt-4">Confirm Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="checkout.js"></script>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="thankYouToast" style="position: fixed; bottom: 20px; right: 20px; min-width: 250px;"
+        data-autohide="true">
+        <div class="toast-header">
+            <strong class="mr-auto">Thank You!</strong>
+            <small>Just Now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Thank you for shopping with us!
+        </div>
+    </div>
+
+
+</body>
+
+</html>

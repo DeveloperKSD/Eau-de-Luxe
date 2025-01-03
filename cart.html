@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!--Bootstrap CSS library-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> <!--JQuery library-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> <!--Popper JS library-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!--Bootstrap JS library-->
+        <link rel="stylesheet" href="index.css">
+        <title>Perfume Boutique</title>
+    </head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="Assets/logotest.jpg" style="width: 50px; height: 50px; padding:auto;">
+        <a class="navbar-brand" style="color: goldenrod;">Eau de Luxe</a>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html" title="Shop for more products">PRODUCTS</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="niches.html" title="Shop for niche perfumes">NICHES</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#FAQs" title="Frequently Asked Questions">FAQs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#aboutUs" title="learn more">ABOUT US</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contactUs" title="CONTACT US">CONTACT US</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="cart.html" title="GO TO CART">
+                        <img id="userCart" src="Assets/userCart.png" alt="Cart"></a>
+                </li>
+               
+                <li class="nav-item"> 
+                    <a class="nav-link" href="accounts.html" title="GO TO ACCOUNT">
+                        <img id="userAccount" src="Assets/userAccount.png" alt="Acc">
+                    </a>
+                   </li>
+
+            
+            </ul>
+        </div>
+    
+    </nav>
+
+
+
+
+
+    <h2>Your Cart</h2>
+
+    <div id="cart-items"></div>
+
+    <div style="text-align: center;">
+        <button id="clear-cart-btn">Clear All</button>
+        <button id="checkout-btn">Checkout</button>
+    </div>
+
+    
+
+    <script src="cart.js"></script>
+</body>
+</html>

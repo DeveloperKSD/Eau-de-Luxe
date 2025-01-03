@@ -1,0 +1,294 @@
+/*Global declarations for styling*/
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #1c1c1c; 
+    color: #e0e0e0; 
+    padding-top: 80px;
+}
+
+h2{
+    text-align: center;
+    color: #c2a76e;
+    padding: 30px 0px 0px 0px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:bold;
+}
+
+
+/*CSS for NavBar*/
+
+#userAccount{       /*Adjusting the Account icon to rightmost side of the navbar*/
+    width: 40px; 
+    height: 40px; 
+    position:absolute;
+    right:40px;
+    top: 20px;
+}
+
+#userCart {         /*Adusting the cart icon to the left side of Account icon*/
+    width: 40px; 
+    height: 40px; 
+    position:absolute;
+    top: 22px;
+    right:120px;
+}
+
+#DiscoverButton{
+    width: 550px; 
+    height: 60px; 
+    bottom: 10px;
+}
+ 
+.navbar {           /*Keeps the NavBar on the top of the page for better UI*/
+    position:fixed;
+    top: 0;
+    height:auto;
+    width:100%;
+    z-index: 10000; 
+}
+
+
+.navbar li{   /*Distance between different navbar texts(HOME, products etc)*/
+    margin-right: 20px;
+}
+
+.navbar a {                         
+    color:antiquewhite;
+    text-decoration:wavy;
+    font-size: 25px; 
+    transition: background-color 0.3s ease; 
+    margin-top: 15px;
+}
+
+.navbar a:hover {           /*Change color of specific elements when hovered*/
+    background-color:grey;
+}
+
+.btn-outline-light {
+        border-color: goldenrod; /* Button border color */
+        color: goldenrod; /* Button text color */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        padding: 8px 15px; /* Adjust padding for consistency */
+}
+
+.btn-outline-light:hover {
+    background-color: goldenrod; /* Background color on hover */
+    color: white; /* Text color on hover */
+}
+
+
+
+.carousel-inner img {
+    height: 1000px; 
+    object-fit:cover; 
+}
+
+
+
+#pricePG1{
+    color: rgb(240, 247, 247);
+    font-weight: bold;
+}
+
+.banner-image {
+    width: 100%; 
+    height: auto;
+    margin: 20px auto;
+}
+
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four images per row */
+    gap: 20px; 
+    padding: 20px;
+}
+
+.product-item {
+    background-color: #282828; 
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.product-item img {
+    transition: transform 0.3s ease;
+    width: 100%; /* Make images responsive */
+    height: 500px; /* Fixed height for uniformity */
+    object-fit: cover; /* Use 'cover' to fill the box while maintaining aspect ratio */
+    border-radius: 10px; 
+    padding:0px 0px 10px 0px;
+}
+.product-item img:hover{
+    transform: scale(1.05);
+}
+.product-item h3 {
+    color: #d3b58d; /* Brownish accent */
+}
+
+.product-item p {
+    color: #e0e0e0; /* Light text */
+}
+
+  
+button {
+    background-color:#c2a76e; 
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6bd3269e; 
+}
+
+.add-to-cart-btn:hover {
+    background-color: goldenrod;
+    color: #fff;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    top: 20%; /* Position from the top */
+    right: 20px; /* Position from the right */
+    width: 500px; 
+    background-color:rgba(17, 17, 17, 0.594); 
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000; 
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+    animation: fadeIn 0.5s;
+}
+
+.popup-image {
+    width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+}
+
+#popuptext{
+    
+    font-size: larger;
+}
+
+.popup button {
+    margin-top: 10px;
+    background-color: #58370d; 
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded button corners */
+}
+
+.popup button:hover {
+    background-color: #c2a76e; /* Darker brown on hover */
+}
+
+
+
+
+/* Animation for Popup */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(50%, -10%); /* Start from outside the screen */
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0); /* End at original position */
+    }
+}
+
+#aboutUs{
+    font-size: xx-large;
+    padding: 10px 80px 10px 80px;
+}
+
+
+
+
+/*cart.html*/
+
+#clear-cart-btn {
+    background-color: #dc3545; /* Red color for a clear/delete button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px; /* Space between buttons */
+}
+
+#clear-cart-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+
+/* Cart items container styling */
+#cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Empty cart message styling */
+.empty-message {
+    text-align: center;
+    color: #555;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* Individual cart item styling */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cart item image */
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+/* Cart item details */
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Product name */
+.cart-item-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 5px;
+}
+
+/* Product price */
+.cart-item-price {
+    font-size: 1rem;
+    color: #666;
+}
+

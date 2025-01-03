@@ -1,0 +1,52 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.checkout-header {
+    margin-bottom: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    border: none;
+}
+
+.summary-item {
+    font-size: 1.1rem;
+    padding: 5px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#total-amount {
+    font-size: 1.5rem;
+}
+
+#checkout-button {
+    border-radius: 25px;
+    font-size: 1.2rem;
+}
+
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    color: #333;
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.btn-success {
+    border-radius: 25px;
+    font-size: 1.1rem;
+}
+

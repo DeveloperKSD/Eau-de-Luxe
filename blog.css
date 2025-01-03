@@ -1,0 +1,74 @@
+body {
+    font-family: 'Georgia', serif; /* Elegant font choice */
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Soft background color */
+    color: #333; /* Text color */
+}
+h1 {
+    color: #7d5b98; /* Elegant heading color */
+    text-align: center;
+    font-size: 2.5em; /* Larger title */
+    margin-top: 20px;
+}
+h2 {
+    color: #5b4b76; /* Subtle heading color */
+    font-size: 1.8em; /* Larger subheading */
+    border-bottom: 2px solid #7d5b98; /* Underline for elegance */
+    padding-bottom: 5px;
+}
+p {
+    color: #666;
+    font-size: 1.1em; /* Slightly larger font for readability */
+    margin: 10px 0;
+}
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove padding */
+}
+li {
+    margin: 15px 0; /* Space between list items */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center icon and text vertically */
+}
+.note-icon {
+    width: 30px; /* Icon size */
+    height: 30px; /* Icon size */
+    margin-right: 15px; /* Space between icon and text */
+}
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+article {
+    max-width: 800px; /* Maximum width for content */
+    margin: 20px auto; /* Centered with margin */
+    background: #ffffff; /* White background for the article */
+    padding: 30px; /* Generous padding */
+    border-radius: 12px; /* Soft rounded corners */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Deeper shadow for premium look */
+}
+/* Button styling */
+.button {
+    display: inline-block; /* Makes it behave like a button */
+    padding: 10px 20px; /* Padding around the text */
+    background-color: #7d5b98; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    margin-top: 20px; /* Add space above the button */
+}
+.button:hover {
+    background-color: #5b4b76; /* Darker shade on hover */
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+    <img src="Assets/logotest.jpg" style="width: 50px; height: 50px; padding:auto;">
+    <a class="navbar-brand" style="color: goldenrod;">Eau de Luxe</a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">HOME</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="products.html" title="Shop for more products">PRODUCTS</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="niches.html" title="Shop for niche perfumes">NICHES</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html#FAQs" title="Frequently Asked Questions">FAQs</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html#aboutUs" title="learn more">ABOUT US</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html#contactUs" title="CONTACT US">CONTACT US</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="cart.html" title="GO TO CART">
+                    <img id="userCart" src="SanyuktaAssets/userCart.png" alt="Cart"></a>
+            </li>
+           
+            <li class="nav-item"> 
+                <a class="nav-link" href="accounts.html" title="ACCOUNT">
+                    <img id="userAccount" src="SanyuktaAssets/userAccount.png" alt="Acc">
+                </a>
+               </li>
+
+        
+        </ul>
+    </div>
+
+</nav>
+
+  <title>Niche Perfumes at Luxury Mall</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="niche.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="add-to-cart.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Niche Perfume Collection</h1>
+    <p>Discover the world of luxury with our exclusive range of niche perfumes.</p>
+  </header>
+
+  <main class="perfume-section container-fluid">
+    <div class="row">
+      
+      <!-- Creed Section -->
+      <section class="brand col-lg-2 col-md-3 col-sm-6 text center" id="creed">
+        <h2>Creed</h2>
+       <div class="brand-content">
+           <img src="SanyuktaAssets/Creed Aventus.jpg" alt="Creed Aventus" style="width: 180px; height: auto;">
+           <p>Aventus</p>
+           <p>Price: Rs.20,000</p>
+         <button class="add-to-cart-btn" data-name="Creed Aventus" data-price="20000" data-image="SanyuktaAssets/Creed Aventus.jpg">Add to Cart</button>
+        </div>
+
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Creed Silver Mountain Water.jpg" alt="Creed Silver Mountain Water" style="width: 180px; height: auto;">
+          <p>Silver Mountain</p>
+          <p>Price: Rs.25,000</p>
+          <button class="add-to-cart-btn" data-name="Creed Silver Mountain Water" data-price="25000" data-image="SanyuktaAssets/Creed Silver Mountain Water.jpg">Add to Cart</button>
+        </div>
+
+      </section>
+
+      <!-- Byredo Section -->
+      <section class="brand col-lg-2 col-md-3 col-sm-6" id="byredo">
+        <h2>Byredo</h2>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Byredo Gypsy Water.jpg" alt="Byredo Gypsy Water" style="width: 180px; height: auto;">
+          <p>Gypsy Water</p>
+          <p>Price: Rs.25,000</p>
+          <button class="add-to-cart-btn" data-name="Byredo Gypsy Water" data-price="25000" data-image="SanyuktaAssets/Byredo Gypsy Water.jpg">Add to Cart</button>
+        </div>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Byredo Blanche.jpg" alt="Byredo Blanche" style="width: 180px; height: auto;">
+          <p>Blanche</p>
+          <p>Price: Rs.20,000</p>
+          <button class="add-to-cart-btn" data-name="Byredo Blanche" data-price="20000" data-image="SanyuktaAssets/Byredo Blanche.jpg">Add to Cart</button>
+        </div>
+      </section>
+
+      <!-- Diptyque Section -->
+      <section class="brand col-lg-2 col-md-3 col-sm-6" id="diptyque">
+        <h2>Diptyque</h2>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Diptyque Philoykos.jpg" alt="Diptyque Philosykos" style="width: 185px; height: auto;">
+          <p>Phylosykos</p>
+          <p>Price: Rs.25,000</p>
+          <button class="add-to-cart-btn" data-name="Diptyque Phylosykos" data-price="25000" data-image="SanyuktaAssets/Diptyque Philoykos.jpg">Add to Cart</button>
+        </div>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Diptyque Tam Dao.jpg" alt="Diptyque Tam Dao" style="width: 185px; height: auto;">
+          <p>Tam Dao</p>
+          <p>Price: Rs.20,000</p>
+          <button class="add-to-cart-btn" data-name="Diptyque Tam Dao" data-price="20000" data-image="SanyuktaAssets/Diptyque Tam Dao.jpg">Add to Cart</button>
+        </div>
+      </section>
+
+      <!-- Maison Francis Kurkdjian Section -->
+      <section class="brand col-lg-2 col-md-3 col-sm-6" id="maison-francis-kurkdjian">
+        <h2>MFK</h2>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/MFK Barracat Rouge 540.jpg" alt="Maison Francis Kurkdjian Baccarat Rouge 540" style="width: 180px; height: auto;">
+          <p>Barracat Rouge 540</p>
+          <p>Price: Rs.15,000</p>
+          <button class="add-to-cart-btn" data-name="MFK Baccarat Rouge 540" data-price="15000" data-image="SanyuktaAssets/MFK Barracat Rouge 540.jpg">Add to Cart</button>
+        </div>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/MFK Aqua Universalis.jpg" alt="Maison Francis Kurkdjian Aqua Universalis" style="width: 180px; height: auto;">
+          <p>Aqua Universalis</p>
+          <p>Price: Rs.20,000</p>
+          <button class="add-to-cart-btn" data-name="MFK Aqua Universalis" data-price="20000" data-image="SanyuktaAssets/MFK Aqua Universalis.jpg">Add to Cart</button>
+        </div>
+      </section>
+
+    
+      <!-- Le Labo Section -->
+      <section class="brand col-lg-2 col-md-3 col-sm-6" id="le-labo">
+        <h2>Le Labo</h2>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Le Labo Santal 33.jpg" alt="Le Labo Santal 33" style="width: 180px; height: auto;">
+          <p>Santal 33</p>
+          <p>Price: Rs.15,000</p>
+          <button class="add-to-cart-btn" data-name="Le Labo Santal 33" data-price="15000" data-image="SanyuktaAssets/Le Labo Santal 33.jpg">Add to Cart</button>
+        </div>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Le Labo Rose 31.jpg" alt="Le Labo Rose 31" style="width: 180px; height: auto;">
+          <p>Rose 31</p>
+          <p>Price: Rs.20,000</p>
+          <button class="add-to-cart-btn" data-name="Le Labo Rose 31" data-price="20000" data-image="SanyuktaAssets/Le Labo Rose 31.jpg">Add to Cart</button>
+        </div>
+      </section>
+
+      <div class="row">
+      <!-- Amouage Section -->
+      <section class="brand col-lg-2 col-md-3 col-sm-6" id="amouage">
+        <h2>Amouage</h2>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Amouage Interlude.jpg" alt="Amouage Interlude" style="width: 180px; height: auto;">
+          <p>Interlude</p>
+          <p>Price: Rs.15,000</p>
+          <button class="add-to-cart-btn" data-name="Amouage Interlude" data-price="15000" data-image="SanyuktaAssets/Amouage Interlude.jpg">Add to Cart</button>
+        </div>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Amouage Jubilation.jpg" alt="Amouage Jubilation" style="width: 180px; height: auto;">
+          <p>Jubilation</p>
+          <p>Price: Rs.20,000</p>
+          <button class="add-to-cart-btn" data-name="Amouage Jubilation" data-price="20000" data-image="SanyuktaAssets/Amouage Jubilation.jpg">Add to Cart</button>
+        </div>
+      </section>
+
+      <!-- Penhaligon's Section -->
+      <section class="brand col-lg-2 col-md-3 col-sm-6" id="penhaligons">
+        <h2>Penhaligon's</h2>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Penhaligons TTOLG.jpg" alt="Penhaligon The Tragedy of Lord George" style="width: 180px; height: auto;">
+          <p>The Tragedy of Lord George</p>
+          <p>Price: Rs.15,000</p>
+          <button class="add-to-cart-btn" data-name="Penhaligons The Tragedy of Lord George" data-price="15000" data-image="SanyuktaAssets/Penhaligons TTOLG.jpg">Add to Cart</button>
+        </div>
+        <div class="brand-content">
+          <img src="SanyuktaAssets/Penhaligons Halfetti.jpg" alt="Penhaligon Halfeti" style="width: 135px; height: auto;">
+          <p>Halfeti</p>
+          <p>Price: Rs.20,000</p>
+          <button class="add-to-cart-btn" data-name="Penhaligons Halfeti" data-price="20000" data-image="SanyuktaAssets/Penhaligons Halfeti.jpg">Add to Cart</button>
+        </div>
+      </section>
+
+      
+      
+        <!-- Jo Malone Section -->
+        <section class="brand col-lg-2 col-md-3 col-sm-6" id="jo-malone">
+          <h2>Jo Malone</h2>
+          <div class="brand-content">
+            <img src="SanyuktaAssets/Jo Malone LB&M.jpg" alt="Jo Malone Lime Basil & Mandarin" style="width: 180px; height: auto;">
+            <p>Lime Basil & Mandarin</p>
+            <p>Price: Rs.15,000</p>
+            <button class="add-to-cart-btn" data-name="Jo Malone Lime Basil and Mandarin" data-price="15000" data-image="SanyuktaAssets/Jo Malone LB&M.jpg">Add to Cart</button>
+          </div>
+          <div class="brand-content">
+            <img src="SanyuktaAssets/Jo Malone WS&SS.jpg" alt="Jo Malone Wood Sage & Sea Salt" style="width: 180px; height: auto;">
+            <p>Wood Sage & Sea Salt</p>
+            <p>Price: Rs.20,000</p>
+            <button class="add-to-cart-btn" data-name="Jo Malone Wood Sage and Sea Salt" data-price="20000" data-image="SanyuktaAssets/Jo Malone WS&SS.jpg">Add to Cart</button>
+          </div>
+        </section>
+        
+        <!-- Mancera Section -->
+        <section class="brand col-lg-2 col-md-3 col-sm-6" id="mancera">
+          <h2>Mancera</h2>
+          <div class="brand-content">
+            <img src="SanyuktaAssets/Mancera Cedrat Boise.jpg" alt="Mancera Cedrat Boise" style="width: 180px; height: auto;">
+            <p>Cedrat Boise</p>
+            <p>Price: Rs.15,000</p>
+            <button class="add-to-cart-btn" data-name="Mancera Cedrat Boise" data-price="15000" data-image="SanyuktaAssets/Mancera Cedrat Boise.jpg">Add to Cart</button>
+          </div>
+          <div class="brand-content">
+            <img src="SanyuktaAssets/Mancera Roses Vanille.jpg" alt="Mancera Roses Vanille" style="width: 180px; height: auto;">
+            <p>Roses Vanille</p>
+            <p>Price: Rs.20,000</p>
+            <button class="add-to-cart-btn" data-name="Mancera Roses Vanille" data-price="20000" data-image="SanyuktaAssets/Mancera Roses Vanille.jpg">Add to Cart</button>
+          </div>
+        </section>
+  
+        <!-- Serge Lutens Section -->
+        <section class="brand col-lg-2 col-md-3 col-sm-6" id="serge-lutens">
+          <h2>Serge Lutens</h2>
+          <div class="brand-content">
+            <img src="SanyuktaAssets/Serge Lutens Ambre.jpg" alt="Serge Lutens Ambre Sultan" style="width: 180px; height: auto;">
+            <p>Ambre</p>
+            <p>Price: Rs.15,000</p>
+            <button class="add-to-cart-btn" data-name="Serge Lutens Ambre Sultan" data-price="15000" data-image="SanyuktaAssets/Serge Lutens Ambre Sultan.jpg">Add to Cart</button>
+          </div>
+          <div class="brand-content">
+            <img src="SanyuktaAssets/Serge Lutens CHergui.jpg" alt="Serge Lutens Chergui" style="width: 180px; height: auto;">
+            <p>Chergui</p>
+            <p>Price: Rs.20,000</p>
+            <button class="add-to-cart-btn" data-name="Serge Lutens Chergui" data-price="20000" data-image="SanyuktaAssets/Serge Lutens CHergui.jpg">Add to Cart</button>
+          </div>
+        </section>
+    </div>
+    
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="add-to-cart.js"></script>
+</body>
+</html>

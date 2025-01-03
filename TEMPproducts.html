@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eau de Luxe - Perfume Collection</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- noUiSlider CSS for price slider -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css" rel="stylesheet">
+    <!-- Select2 CSS for searchable dropdown -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+    <link href="products.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <img src="Assets/logotest.jpg" style="width: 50px; height: 50px; padding:auto;">
+        <a class="navbar-brand" style="color: goldenrod;">Eau de Luxe</a>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html" title="Shop for more products">PRODUCTS</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="niches.html" title="Shop for niche perfumes">NICHES</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#FAQs" title="Frequently Asked Questions">FAQs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#aboutUs" title="learn more">ABOUT US</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contactUs" title="CONTACT US">CONTACT US</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="cart.html" title="GO TO CART">
+                        <img id="userCart" src="Assets/userCart.png" alt="Cart"></a>
+                </li>
+               
+                <li class="nav-item"> 
+                    <a class="nav-link" href="accounts.html" title="GO TO ACCOUNT">
+                        <img id="userAccount" src="Assets/userAccount.png" alt="Acc">
+                    </a>
+                   </li>
+                
+
+            
+            </ul>
+        </div>
+    
+        
+</nav>
+
+<div class="container-fluid mt-5">
+    <!-- Filter Button -->
+    <button class="btn btn-dark mb-4" type="button" data-toggle="collapse" data-target="#filter-section" aria-expanded="false" aria-controls="filter-section">
+        Filter Products
+    </button>
+
+    <!-- Collapsible Filter Section -->
+    <div class="collapse" id="filter-section">
+        <div class="card card-body">
+            <div class="row">
+                <!-- Brand Filter -->
+                <div class="col-md-3">
+                    <label for="brand-filter">Brand</label>
+                    <select id="brand-filter" class="form-control select2" multiple>
+                        <option value="Brand A">Brand A</option>
+                        <option value="Brand B">Brand B</option>
+                        <option value="Brand C">Brand C</option>
+                    </select>
+                </div>
+                <!-- Price Filter -->
+                <div class="col-md-3">
+                    <label>Price</label>
+                    <div id="price-slider"></div>
+                    <p id="price-range" class="text-muted">Price: $0 - $500</p>
+                </div>
+                <!-- Gender Filter -->
+                <div class="col-md-2">
+                    <label for="gender-filter">Gender</label>
+                    <select id="gender-filter" class="form-control">
+                        <option value="">All</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Unisex">Unisex</option>
+                    </select>
+                </div>
+                <!-- Scent Type Filter -->
+                <div class="col-md-2">
+                    <label for="scent-filter">Scent Type</label>
+                    <select id="scent-filter" class="form-control">
+                        <option value="">All</option>
+                        <option value="Floral">Floral</option>
+                        <option value="Woody">Woody</option>
+                        <option value="Citrus">Citrus</option>
+                    </select>
+                </div>
+                <!-- Discount Filter -->
+                <div class="col-md-2">
+                    <label>Discount</label><br>
+                    <input type="checkbox" id="discount-filter"> Discounted Items Only
+                </div>
+            </div>
+            <button class="btn btn-primary mt-3" onclick="filterProducts()">Apply Filters</button>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="row mt-4" id="product-grid">
+        <!-- Sample Product Card -->
+        <div class="col-md-4 product-card" data-brand="Brand A" data-price="120" data-gender="Unisex" data-scent="Floral" data-discount="true">
+            <div class="card mb-4 shadow-sm">
+                <img src="Assets/sampleperfume.png" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">Floral Perfume</h5>
+                    <p class="card-text">Price: $120</p>
+                    <button class="add-to-cart-btn btn btn-outline-light" data-name="Armani Code Parfum 100ml" data-price="7500" data-image="Assets/code.png">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- Additional product cards can be added here -->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+<script>
+    // Initialize Select2 for brand filter
+    $('.select2').select2({
+        placeholder: "Select Brand",
+        allowClear: true
+    });
+
+    // Initialize Price Slider
+    var priceSlider = document.getElementById('price-slider');
+    var selectedPriceRange = [0, 500];
+    noUiSlider.create(priceSlider, {
+        start: selectedPriceRange,
+        connect: true,
+        range: { min: 0, max: 500 },
+        format: { to: value => Math.round(value), from: value => Number(value) }
+    });
+
+    // Update price range label and set selected price range
+    priceSlider.noUiSlider.on('update', function(values) {
+        selectedPriceRange = values.map(value => parseFloat(value));
+        document.getElementById('price-range').textContent = `Price: $${selectedPriceRange[0]} - $${selectedPriceRange[1]}`;
+    });
+
+    // Function to filter products
+    function filterProducts() {
+        const brandFilters = $('#brand-filter').val();
+        const genderFilter = $('#gender-filter').val();
+        const scentFilter = $('#scent-filter').val();
+        const discountFilter = $('#discount-filter').is(':checked');
+        const minPrice = selectedPriceRange[0];
+        const maxPrice = selectedPriceRange[1];
+
+        $('.product-card').each(function() {
+            const $card = $(this);
+            const productBrand = $card.data('brand');
+            const productPrice = parseFloat($card.data('price'));
+            const productGender = $card.data('gender');
+            const productScent = $card.data('scent');
+            const productDiscount = $card.data('discount') === true;
+
+            const brandMatch = !brandFilters.length || brandFilters.includes(productBrand);
+            const priceMatch = productPrice >= minPrice && productPrice <= maxPrice;
+            const genderMatch = !genderFilter || productGender === genderFilter;
+            const scentMatch = !scentFilter || productScent === scentFilter;
+            const discountMatch = !discountFilter || productDiscount;
+
+            if (brandMatch && priceMatch && genderMatch && scentMatch && discountMatch) {
+                $card.show();
+            } else {
+                $card.hide();
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

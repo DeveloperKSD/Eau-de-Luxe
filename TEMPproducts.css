@@ -1,0 +1,161 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+.filter-section {
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.filter-title {
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ffd700;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusts based on screen size */
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: #2e2e2e;
+    border-radius: 8px;
+    color: #fff;
+}
+.product-card img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.btn-gold {
+    background-color: #ffd700;
+    color: #333;
+}
+
+
+#userAccount{       /*Adjusting the Account icon to rightmost side of the navbar*/
+    width: 40px; 
+    height: 40px; 
+    position:absolute;
+    right:40px;
+    top: 20px;
+}
+
+#userCart {         /*Adusting the cart icon to the left side of Account icon*/
+    width: 40px; 
+    height: 40px; 
+    position:absolute;
+    top: 22px;
+    right:120px;
+}
+
+#DiscoverButton{
+    width: 550px; 
+    height: 60px; 
+    bottom: 10px;
+}
+ 
+.navbar {           /*Keeps the NavBar on the top of the page for better UI*/
+    position:fixed;
+    top: 0;
+    height:auto;
+    width:100%;
+    z-index: 10000; 
+}
+
+
+.navbar li{   /*Distance between different navbar texts(HOME, products etc)*/
+    margin-right: 20px;
+}
+
+.navbar a {                         
+    color:antiquewhite;
+    text-decoration:wavy;
+    font-size: 25px; 
+    transition: background-color 0.3s ease; 
+    margin-top: 15px;
+}
+
+.navbar a:hover {           /*Change color of specific elements when hovered*/
+    background-color:grey;
+}
+
+
+.banner-image {
+    width: 100%; 
+    height: auto;
+    margin: 20px auto;
+}
+
+
+
+/* Add this CSS */
+.container-fluid {
+    padding-top: 70px; /* Adjust this value based on your navbar height */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four images per row */
+    gap: 20px; 
+    padding: 20px;
+}
+
+.product-item {
+    background-color: #282828; 
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.product-item img {
+    transition: transform 0.3s ease;
+    width: 100%; /* Make images responsive */
+    height: 500px; /* Fixed height for uniformity */
+    object-fit: cover; /* Use 'cover' to fill the box while maintaining aspect ratio */
+    border-radius: 10px; 
+    padding:0px 0px 10px 0px;
+}
+.product-item img:hover{
+    transform: scale(1.05);
+}
+.product-item h3 {
+    color: #d3b58d; /* Brownish accent */
+}
+
+.product-item p {
+    color: #e0e0e0; /* Light text */
+}
+
+  
+button {
+    background-color:#c2a76e; 
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6bd3269e; 
+}
+
+.add-to-cart-btn {
+    background-color: #ffd700;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: goldenrod;
+    color: #fff;
+    transform: scale(1.05);
+}
+

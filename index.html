@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap CSS library-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+     <!--JQuery library-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!--Popper JS library-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> 
+    <!--Bootstrap JS library-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!--Animation On Scroll AOS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 5000, // Adjusts animation duration in milliseconds
+            once: true,     // Animates elements only once
+        });
+    </script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Include SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <title>Eau de Luxe-Perfume Boutique</title>
+</head>
+<body>  
+    <!--NAV BAR SECTION-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="Assets/logotest.jpg" style="width: 50px; height: 50px; padding:auto;">
+        <a class="navbar-brand" style="color: goldenrod;">Eau de Luxe</a>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html" title="Shop for more products">PRODUCTS</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="niches.html" title="Shop for niche perfumes">NICHES</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#FAQs" title="Frequently Asked Questions">FAQs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#aboutUs" title="learn more">ABOUT US</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contactUs" title="CONTACT US">CONTACT US</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="cart.html" title="GO TO CART">
+                        <img id="userCart" src="Assets/userCart.png" alt="Cart"></a>
+                </li>
+               
+                <li class="nav-item"> 
+                    <a class="nav-link" href="accounts.html" title="GO TO ACCOUNT">
+                        <img id="userAccount" src="Assets/userAccount.png" alt="Acc">
+                    </a>
+                   </li>
+                
+               <li class="nav-item">
+                <a 
+                class="btn btn-outline-light" 
+                href="blog.html" 
+                id="DiscoverButton"
+                style="margin-left: 20px;margin-bottom: 10px; border-radius: 20px; font-weight: bold;"
+                title="Find your perfect fragrance!">
+                DISCOVER YOUR SCENT
+                </a>
+            </li>
+            
+            </ul>
+        </div>
+    
+        
+</nav>
+<!--END OF NAV BAR SECTION-->
+
+
+<!--CAROUSEL SECTION-->
+<section id="home">
+    
+   
+    <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#homeCarousel" data-slide-to="1"></li>
+            <li data-target="#homeCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Assets/banner-DiorSauvage.jpg" alt="Perfume Collection 1" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="Assets/banner-OneMillion.jpg" alt="Perfume Collection 2" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="Assets/banner-CH.jpg" alt="Perfume Collection 3" class="d-block w-100">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+<!--END OF CAROUSEL SECTION-->
+
+<!--HOME PAGE PRODUCTS SECTION START-->
+<section id="products">
+        <h2>FEATURED PRODUCTS</h2>
+        <div class="product-grid">
+
+
+            <div class="product-item">
+                <img src="Assets/TDH.jpg" alt="Perfume 1" class="product-image">
+                <h3>TERRE D'HERMES pure parfum<br>50ml</h3>
+                <p id="pricePG1">₹9000</p>
+                
+                <button 
+                    class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="TDH Pure Parfum 50ml" 
+                    data-price="9000" 
+                    data-image="Assets/TDH.jpg">
+                    Add to Cart
+                </button>
+            </div>
+            
+
+
+            <div class="product-item">
+                <img src="Assets/GoodGirl.jpg" alt="Perfume 2" class="product-image"> 
+                <h3>Carolina Herrera Good Girl EDP<br>100ml</h3>
+                <p id="pricePG1">₹6500</p>
+
+                <button 
+                class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="CH Good Girl EDP 100ml" 
+                    data-price="6500" 
+                    data-image="Assets/GoodGirl.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+
+
+            <div class="product-item">
+                <img src="Assets/AHsport.jpg" alt="Perfume 3">
+                <h3>Allure Homme Sport EDT for men<br>100ml</h3>
+                <p id="pricePG1">₹10000</p>
+                <button 
+                class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="AHS EDT 100ml" 
+                    data-price="10000" 
+                    data-image="Assets/AHsport.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+
+
+
+            <div class="product-item">
+                <img src="Assets/dD.jpg" alt="Perfume 4">
+                <h3>Dolce & Gabbana Pour Femme<br>100ml</h3>
+                <p id="pricePG1">₹11000</p>
+                <button 
+                class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="D&G Pour Femme EDP 100ml" 
+                    data-price="11000" 
+                    data-image="Assets/dD.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <h2>NEW ARRIVALS</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="Assets/eros.png" alt="Perfume 1">
+                <h3>Versace Eros Flame EDP<br>100ml</h3>
+                <p id="pricePG1">₹6000</p>
+                <button 
+                    class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="Eros Flame EDP 100ml" 
+                    data-price="6000" 
+                    data-image="Assets/eros.png">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="product-item">
+                <img src="Assets/code.png" alt="Perfume 2">
+                <h3>GIORGIO ARMANI Code Parfum<br>100ml</h3>
+                <p id="pricePG1">₹7500</p>
+                <button 
+                    class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="Armani Code Parfum 100ml" 
+                    data-price="7500" 
+                    data-image="Assets/code.png">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="product-item">
+                <img src="Assets/invictus.png" alt="Perfume 3">
+                <h3>Invictus by Paco Rabanne EDT<br>50ml</h3>
+                <p id="pricePG1">₹5800</p>
+                <button 
+                    class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="Invictus EDT 50ml" 
+                    data-price="5800" 
+                    data-image="Assets/invictus.png">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="product-item">
+                <img src="Assets/featured-jpg.jpg" alt="Perfume 4">
+                <h3>Jean Paul Gaultier Le Male Le Parfum<br>75ml</h3>
+                <p id="pricePG1">₹10000</p>
+                <button 
+                class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="JPG Le Male Le Parfum 75ml" 
+                    data-price="5000" 
+                    data-image="Assets/featured-jpg.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+
+            <div class="product-item">
+                <img src="Assets/AMWparfum.jpg" alt="Perfume 5">
+                <h3>Azzaros Most Wanted parfum 100ml</h3>
+                <p id="pricePG1">₹8100</p>
+                <button 
+                    class="add-to-cart-btn btn btn-outline-light" 
+                    data-name="AMW parfum 100ml" 
+                    data-price="8100" 
+                    data-image="Assets/AMWparfum.jpg">
+                    Add to Cart
+                </button>
+            </div>
+
+
+            <div class="product-item">
+                <img src="Assets/spicebomb.jpg" alt="Perfume 5">
+                <h3>Victor & Rolf spicebomb EDT<br>50ml</h3>
+                <p id="pricePG1">₹5000</p>
+                <button 
+                class="add-to-cart-btn btn btn-outline-light" 
+                data-name="V&R spicebomb 50ml" 
+                data-price="5000" 
+                data-image="Assets/spicebomb.jpg">
+                Add to Cart
+            </button>
+            </div>
+
+            <div class="product-item">
+                <img src="Assets/jpgLeEssense.jpg" alt="Perfume 5">
+                <h3>JPG Le Male Le Essense<br>75ml</h3>
+                <p id="pricePG1">₹9000</p>
+                <button 
+                class="add-to-cart-btn btn btn-outline-light" 
+                data-name="JPG Le Essense 75ml" 
+                data-price="9000" 
+                data-image="Assets/jpgLeEssense.jpg">
+                Add to Cart
+            </button>
+            </div>  
+            <div class="product-item">
+                <img src="Assets/diorF.jpg" alt="Perfume 5">
+                <h3>Dior Farhenhiet EDT<br>100ml </h3>
+                <p id="pricePG1">₹13000</p>
+                <button 
+                class="add-to-cart-btn btn btn-outline-light" 
+                data-name="JPG Le Essense 75ml" 
+                data-price="9000" 
+                data-image="Assets/diorF.jpg">
+                Add to Cart
+            </button>
+            </div>
+        </div>
+</section>
+<!--PRODUCTS SECTION END-->
+
+
+<!--POP UP SECTION START-->
+
+<!--POP UP HTML-->
+<div class="popup" id="salePopup">
+    <img src="Assets/popup-jpg.jpg" alt="Sale Banner" class="popup-image"> 
+    <p id="popuptext">NEW ARRIVALS<br>🎉 CHECK OUR NEWEST COLLECTION 🎉</p>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<!--POP UP CSS STYLING-->
+<style>
+    .popup-message {
+    position: fixed;  /* Positions the popup at a fixed position on the screen */
+    bottom: 20px;     /* Places the popup 20px from the bottom of the screen */
+    left: 50%;        /* Centers the popup horizontally */
+    transform: translateX(-50%); /* Adjusts the element to truly center it by moving it back by 50% of its width */
+    background-color: #28a745;  /* Gives the popup a green background color */
+    color: white;     /* Sets the text color to white */
+    padding: 10px 20px; /* Adds padding inside the popup */
+    border-radius: 5px; /* Rounds the corners */
+    z-index: 1000;    /* Ensures the popup appears above other content */
+    animation: fadeInOut 3s ease forwards; /* Defines the animation to fade in and out */
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; }       /* Starts with the popup invisible */
+    10% { opacity: 1; }      /* Makes the popup visible right after the start */
+    90% { opacity: 1; }      /* Keeps the popup visible for most of the time */
+    100% { opacity: 0; }     /* Fades the popup out at the end */
+}
+</style>
+
+<!--POP UP JAVASCRIPT-->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+        const salePopup = document.getElementById('salePopup');
+        salePopup.style.display = 'block'; 
+});
+
+function closePopup() {
+        const salePopup = document.getElementById('salePopup');
+        salePopup.style.display = 'none'; // Hide the popup
+}
+</script>
+
+<!--POP UP SECTION END-->
+<br>
+<br>
+
+
+<!--FAQs SECTION START-->
+<section id="FAQs" class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div id="accordion">   <!--Inbuilt bootstrap component, needs JQUERY and BOOTSTRAP CSS to work-->
+        <div class="faq-item">
+            <h3>
+                <button class="btn btn-link" data-toggle="collapse" data-target="#faq1"> <!--btn btn-link is inbuilt BOOTSTRAP indicating its a link style button-->
+                    What is a niche perfume? - <span class="customer-name">Emma R.</span>
+                </button>
+            </h3>
+            <div id="faq1" class="collapse show" data-parent="#accordion"> <!--collapse makes it collapse, show is on clicking it, data-parent accordian only allows a ingle FAQ to open at one time -->
+                <p>Niche perfumes are unique, high-quality fragrances crafted by artisan perfumers or smaller, exclusive perfume houses. Unlike mass-produced perfumes, niche perfumes focus on rare ingredients, distinct scents, and exceptional craftsmanship, making them unique and personal.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                    How is a designer perfume different from a niche perfume? - <span class="customer-name">James T.</span>
+                </button>
+            </h3>
+            <div id="faq2" class="collapse" data-parent="#accordion">
+                <p>Designer perfumes are created by popular fashion brands or well-known designers and are often widely available. They’re typically crafted for broader appeal, with a balance of quality and affordability. Niche perfumes, however, are produced in smaller batches, focus on unique, artistic scents, and are often harder to find.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                    Do you offer samples of your perfumes? - <span class="customer-name">Sarah L.</span>
+                </button>
+            </h3>
+            <div id="faq3" class="collapse" data-parent="#accordion">
+                <p>Yes, we offer samples for select perfumes, allowing you to experience the scent before committing to a full-size bottle. Check our website or contact us for more information about sample availability.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                    How do I know which perfume will suit me best? - <span class="customer-name">Anna K.</span>
+                </button>
+            </h3>
+            <div id="faq5" class="collapse" data-parent="#accordion">
+                <p>Choosing a perfume is a personal experience, and we’re here to help! You can explore our collection based on scent categories like floral, woody, oriental, or fresh. Our website also provides detailed descriptions to help you find the perfect match, or feel free to contact us for personalized advice.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#faq10" aria-expanded="false" aria-controls="faq10">
+                    What is your return policy? - <span class="customer-name">Noah J.</span>
+                </button>
+            </h3>
+            <div id="faq10" class="collapse" data-parent="#accordion">
+                <p>We accept returns for unopened, unused perfumes in their original packaging within 14 days of purchase. Due to the nature of fragrances, opened products are non-refundable. Please see our return policy for full details or reach out to our team for assistance.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#faq9" aria-expanded="false" aria-controls="faq9">
+                    How long does it take to process and ship my order? - <span class="customer-name">Emily W.</span>
+                </button>
+            </h3>
+            <div id="faq9" class="collapse" data-parent="#accordion">
+                <p>Orders are usually processed within 1–3 business days. Once shipped, delivery times vary depending on your location. You’ll receive a tracking number to monitor your shipment.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#faq8" aria-expanded="false" aria-controls="faq8">
+                    Do you offer international shipping? - <span class="customer-name">Liam N.</span>
+                </button>
+            </h3>
+            <div id="faq8" class="collapse" data-parent="#accordion">
+                <p>Yes, we offer international shipping to many countries. Please check our shipping policy for rates, delivery times, and any restrictions.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#faq7" aria-expanded="false" aria-controls="faq7">
+                    What’s the best way to store my perfume to make it last longer? - <span class="customer-name">Sophie M.</span>
+                </button>
+            </h3>
+            <div id="faq7" class="collapse" data-parent="#accordion">
+                <p>To ensure your perfume stays fresh, store it in a cool, dry place away from direct sunlight and extreme temperatures. Avoid keeping it in humid areas like bathrooms, as moisture and heat can alter the fragrance over time.</p>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!--FAQs CSS SECTION-->
+<style>
+    .faq-section {
+        padding: 30px 30px 0px 30px;
+        background-color: #282828;
+        font-family: 'Arial', sans-serif;
+        max-width: 800px;
+        margin: auto;
+    }
+    
+    .faq-item {
+        margin-bottom: 20px;
+        padding: 0px;
+        border-bottom: 2px solid #ddd;
+    }
+    
+    .faq-item h3 button {
+        font-size: 1.25rem;
+        color: goldenrod;
+        font-weight: 600;
+        margin-bottom: 10px;
+        background: none;
+        border: none;
+        text-align: left;
+        padding: 0;
+        width: 100%;
+        outline: none;
+        box-shadow: none;
+        display: flex;
+        align-items: center;
+    }
+    
+    .customer-name {
+        font-weight: bold;
+        color: #fcfcfc;
+        margin-left: 8px;
+        font-size: 1.1rem;
+    }
+    
+    .faq-item p {
+        font-size: 1.1rem;
+        color: #f4f4f4;
+        line-height: 1.6;
+        margin-left: 20px;
+    }
+</style>
+    
+    
+    
+<!--ABOUT US SECTION-->
+<section id="aboutUs" style="background-color: #282828; padding: 40px; border-radius: 10px; color: #e0e0e0;">
+    <h2 >ABOUT US</h2><br>
+
+    <img src="Assets/logotest.jpg" style="display: block; margin: auto; width: 300px; height: 300px;"><br>
+
+    <p style="text-align: center; margin-top: 20px; line-height: 1.6;">
+        Welcome to <strong>Eau de Luxe</strong>, your destination for extraordinary fragrances.
+        We believe that a scent has the power to evoke memories, express personality,
+        and add a touch of luxury to everyday life.
+        Our carefully curated selection includes both timeless designer perfumes and exclusive niche creations, 
+        crafted by some of the world’s most renowned artisans.
+    </p>
+
+    <h2 style="color: #d3b58d; margin-top: 40px; text-align: center;">Our Story</h2>
+
+    <p style="text-align: center; margin-top: 20px; line-height: 1.6;">
+        <strong>Eau de Luxe</strong> was born from a love for the art of fragrance. 
+        Founded by passionate scent enthusiasts, we set out on a mission to bring unique, 
+        high-quality perfumes to those who appreciate the rare and beautiful. 
+        Join us as we redefine luxury and invite you to discover scents that resonate with your personal story.
+    </p>
+</section>
+<!--NO SPECIAL CSS FOR ABOUT US SECTION-->
+
+
+   
+
+<!--FOOTER SECTION-->
+<footer style="margin: 20px 20px 20px 10px;">
+    <h2 style="margin-left: 0px;" id="contactUs">Contact Us</h2>
+    <section style="font-size:x-large;">
+        <p>
+            Email: 
+            <a href="mailto:info@pEauDeLuxeStore.com">info@EauDeLuxeStore.com</a>
+        </p>
+        <p>Phone: <a href="tel:+91 12345 67890">+91 12345 67890  </a></p>
+        <p>Address: <br>Eau de Luxe Perfume Boutique<br> 123 Fragrance Lane,<br>Rosewood Park,<br>Maharashtra (400001)<br>India</p>
+        <div>
+            <a href="https://facebook.com/EauDeLuxeStore" style="margin: 20px;">
+                <img src="Assets/footer-Facebook.png" alt="Facebook" style="width: 40px; height: 40px;">
+            </a>
+            <a href="https://instagram.com/EauDeLuxeStore" style="margin: 20px;">
+                <img src="Assets/footer-Instagram.png" alt="Instagram" style="width: 40px; height: 40px;">
+            </a>
+            <a href="https://twitter.com/EauDeLuxeStore" style="margin: 20px;">
+                <img src="Assets/footer-X.png" alt="X" style="width: 40px; height: 40px;">
+            </a>
+        </div>
+        <br>
+        <p>Business Hours: Mon - Fri: 9 AM - 5 PM</p>
+        <br>
+
+
+        <!--FEEDBACK AND NEWSLETTER SECTION-->
+        
+        <button class="feedback-button" 
+        style="background-color: black; color: gold; 
+        border: 2px solid gold; padding: 10px 15px; 
+        border-radius: 5px; transition: background-color 0.3s, color 0.3s;
+        margin-bottom: 20px;" 
+        onmouseover="this.style.backgroundColor='gold'; this.style.color='black';" 
+        onmouseout="this.style.backgroundColor='black'; this.style.color='gold';"
+        onclick="feedback()">
+            <i class="fas fa-comment-dots"></i>GIVE YOUR FEEDBACK <!--its a font from Font Awesome library-->
+        </button>         <!--onmouseover-Used to give a hover effect using js events-->
+        <br>
+        <button
+        style="background-color: black; color: gold; 
+        border: 2px solid gold; padding: 10px 15px; 
+        border-radius: 5px; transition: background-color 0.3s, color 0.3s;" 
+        onmouseover="this.style.backgroundColor='gold'; this.style.color='black';" 
+        onmouseout="this.style.backgroundColor='black'; this.style.color='gold';"
+        onclick="subscribe()">
+            <i class="fas fa-comment-dots"></i> 
+            SUBSCRIBE TO OUR NEWSLETTER
+        </button>
+
+</section>
+</footer>
+
+
+
+<script src="add-to-cart.js"></script>
+<!--FEEDBACK AND NEWSLETTER JAVASCRIPT CODE-->
+
+
+<!--SweetAlert2 library used here-->
+<script>
+    /*Pop up for feedback*/
+    function feedback() {
+    Swal.fire({ /*Its the main method from SweetAlert2 library and creates a popup*/
+        title: 'Feedback',
+        text: 'We value your feedback. Please share your thoughts!', /*Creates a input field*/
+        input: 'textarea',
+        showCancelButton: true,
+        confirmButtonText: 'Submit', /*Text buttons for submit and Cancel*/
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.value) {
+            // Handle feedback submission here
+            Swal.fire('Thank you for your feedback!');
+        }
+    });
+}
+
+/*Pop up for newsletter*/
+function subscribe() {
+    Swal.fire({
+        title: 'Subscribe to our Newsletter!',
+        input: 'email',
+        inputPlaceholder: 'Enter your email address',
+        showCancelButton: true,
+        confirmButtonText: 'Subscribe',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.value) {
+            // Handle subscription logic here
+            Swal.fire(`Subscribed to newsletter!!  ${result.value}`);
+        }
+    });
+}
+
+
+
+
+
+</script>
+</body>
+</html>

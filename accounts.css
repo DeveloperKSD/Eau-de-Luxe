@@ -1,0 +1,159 @@
+/*CSS for NavBar*/
+
+#userAccount{       /*Adjusting the Account icon to rightmost side of the navbar*/
+    width: 40px; 
+    height: 40px; 
+    position:absolute;
+    right:40px;
+    top: 20px;
+}
+
+#userCart {         /*Adusting the cart icon to the left side of Account icon*/
+    width: 40px; 
+    height: 40px; 
+    position:absolute;
+    top: 22px;
+    right:120px;
+}
+
+#DiscoverButton{
+    width: 550px; 
+    height: 60px; 
+    bottom: 10px;
+}
+ 
+.navbar {           /*Keeps the NavBar on the top of the page for better UI*/
+    position:fixed;
+    top: 0;
+    height:auto;
+    width:100%;
+    z-index: 10000; 
+}
+
+
+.navbar li{   /*Distance between different navbar texts(HOME, products etc)*/
+    margin-right: 20px;
+}
+
+.navbar a {                         
+    color:antiquewhite;
+    text-decoration:wavy;
+    font-size: 25px; 
+    transition: background-color 0.3s ease; 
+    margin-top: 15px;
+}
+
+.navbar a:hover {           /*Change color of specific elements when hovered*/
+    background-color:grey;
+}
+
+/*MAIN ACCOUNT CSS*/
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(to right, #1a1a1a, #333);
+    color: #d4af37;
+    text-align: center;
+    padding-top: 100px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 20px;
+    color: #f4f4f4;
+}
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #d4af37;
+}
+.hero p {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #d4af37;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Login and Logout Buttons */
+#loginButton, #logoutButton {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#loginButton {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    transition: transform 0.2s, background-color 0.2s;
+}
+#loginButton:hover {
+    background-color: #c0972e;
+    transform: scale(1.05);
+}
+#logoutButton {
+    background-color: #c0392b;
+    color: white;
+    display: none;
+    margin-top: 20px;
+}
+#logoutButton:hover {
+    background-color: #a83227;
+}
+
+/* Account Info Section */
+#accountInfo {
+    font-weight: bold;
+    font-size: large;
+    color: #f4f4f4;
+    margin-top: 40px;
+    display: none;
+}
+
+/* User Icon */
+.user-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #d4af37;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: #1a1a1a;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s ease-in-out;
+}
+.modal-content {
+    animation: slideIn 0.4s ease;
+    background-color: #1a1a1a;
+    color: #d4af37;
+    margin: 8% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.close {
+    font-size: 28px;
+    color: #555;
+    float: right;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover {
+    color: #d4af37;
+}

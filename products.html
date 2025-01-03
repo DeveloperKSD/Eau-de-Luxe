@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Perfumes</title>
+    <script src="add-to-cart.js" defer></script>
+</head>
+<style>
+    body{
+        background-color: #333;
+        color: #fff;
+        margin: 40px;
+    }
+
+    header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 0.8rem 0;
+    }
+
+    #userAccount,
+    #userCart {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 22px;
+        margin-left: 20px;
+    }
+
+    #userCart {
+        right: 150px; 
+    }
+
+    #userAccount {
+        right: 60px;
+    }
+
+    #DiscoverButton {
+        width: 700px;
+        height: 60px;
+        bottom: 10px;
+    }
+
+    .navbar {
+        background-color: rgb(46, 45, 45);
+        padding: 15px 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 90px;
+        z-index: 1000;
+    }
+
+    .navbar ul {
+        list-style-type: none;
+    }
+
+    .navbar ul li {
+        display: inline;
+        margin-right: 30px;
+    }
+
+    .navbar a {
+        color: antiquewhite;
+        text-decoration: none;
+        font-size: 25px;
+        transition: background-color 0.3s ease;
+        padding: 10px;
+    }
+
+    .navbar a:hover {
+        background-color: grey;
+        color: black;
+    }
+
+    .btn-outline-light {
+        border-color: goldenrod;
+        color: goldenrod; 
+        transition: background-color 0.3s ease, color 0.3s ease;
+        padding: 8px 15px; 
+    }
+
+    .btn-outline-light:hover {
+        background-color: goldenrod; 
+        color: white; 
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    .container {
+        display: flex;
+        padding-top: 100px;
+    }
+
+    /* Filters Sidebar */
+    .filters {
+        height: auto;
+        width: 25%; 
+        min-height: 500px;
+        background-color: #333;
+        color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+    .filters:hover {
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Product Section */
+    .products {
+        width: 80%;
+        background-color: #333;
+        margin-left: 120px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: self-start;
+    }
+
+    .product-item {
+        background-color: #333;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc(30% - 10px); 
+        border: 1px solid black;
+        position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+        height: 300px; 
+    }
+
+    .product-item img {
+        width: 100%; 
+        height: 60%; 
+        object-fit:fill; 
+    }
+
+    .product-item:hover {
+        transform: scale(1.05);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+
+    .sale-tag {
+        background-color: green;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        position: absolute;
+        top: 10px;
+        right: 10px; 
+        font-weight: bold;
+        z-index: 1; 
+    }
+
+    .sold-tag {
+        background-color: red;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        position: absolute;
+        top: 10px;
+        right: 10px; 
+        font-weight: bold;
+        z-index: 1;
+    }
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .product-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: filter 0.3s;
+    }
+
+    .image-container:hover img {
+        filter: blur(5px);
+    }
+
+    .quick-view {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0.7);
+        color: black;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .image-container:hover .quick-view {
+        opacity: 1;
+    }
+
+    .product-title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px 0; 
+    }
+
+    .product-price {
+        color: #007BFF;
+        margin: 10px 0;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .product-original-price {
+        text-decoration: line-through;
+        color: #cfc1c1;
+    }
+
+    .product-rating {
+        margin: 4px 0;
+        text-align: center;
+    }
+
+    .add-to-cart {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid black;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        margin-top: auto;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .add-to-cart:hover {
+        background-color: lightslategray;
+        color: black;
+    }
+
+    /* Updated Modal Styling */
+    .modal-content {
+        display: flex;
+        width: 600px;
+        height: 450px;
+        overflow: hidden;
+    }
+
+    .modal-body {
+        display: flex;
+        align-items: center; 
+        padding: 20px;
+        background-color: #444;
+        color: white;
+    }
+
+    .modal-body img {
+        width: 300px; 
+        height: 300px; 
+        object-fit: cover; 
+        margin-right: 10px;
+    }
+
+    .filter-price label,
+    .filter-rating label,
+    .filter-brand label,
+    .filter-category label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .no-products {
+        font-size: 100px;
+        text-align: center; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 200px); 
+        margin: 0;
+        color: #fff;
+    }
+</style>
+
+<body style="font-family: Arial, sans-serif;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="Assets/logotest.jpg" style="width: 50px; height: 50px; padding:auto;">
+        <a class="navbar-brand" style="color: goldenrod;">Eau de Luxe</a>
+    
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="products.html" title="Shop for more products">PRODUCTS</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="niches.html" title="Shop for niche perfumes">NICHES</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#FAQs" title="Frequently Asked Questions">FAQs</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#aboutUs" title="learn more">ABOUT US</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contactUs" title="CONTACT US">CONTACT US</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="cart.html" title="GO TO CART">
+                        <img id="userCart" src="Assets/userCart.png" alt="Cart"></a>
+                </li>
+               
+                <li class="nav-item"> 
+                    <a class="nav-link" href="accounts.html" title="GO TO ACCOUNT">
+                        <img id="userAccount" src="Assets/userAccount.png" alt="Acc">
+                    </a>
+                   </li>
+            
+            
+            </ul>
+        </div>
+    
+        
+</nav>
+
+    <div class="container" style="padding-top: 100px;">
+        <aside class="filters">
+            <h2>Filters</h2>
+            <div class="filter-price">
+                <h4>Price</h4>
+                <label><input type="checkbox" id="price1" onchange="filterProducts()"> Up to ₹5,000</label>
+                <label><input type="checkbox" id="price2" onchange="filterProducts()"> ₹5,001 - ₹10,000</label>
+                <label><input type="checkbox" id="price3" onchange="filterProducts()"> ₹10,001 - ₹15,000</label>
+                <label><input type="checkbox" id="price4" onchange="filterProducts()"> ₹15,001 - ₹20,000</label>
+            </div>
+
+            <div class="filter-rating">
+                <h4>Rating</h4>
+                <label><input type="radio" name="rating" value="5" onchange="filterProducts()"> 5 Stars</label>
+                <label><input type="radio" name="rating" value="4" onchange="filterProducts()"> 4 Stars & Up</label>
+                <label><input type="radio" name="rating" value="3" onchange="filterProducts()"> 3 Stars & Up</label>
+                <label><input type="radio" name="rating" value="2" onchange="filterProducts()"> 2 Stars & Up</label>
+                <label><input type="radio" name="rating" value="1" onchange="filterProducts()"> 1 Star & Up</label>
+            </div>
+
+            <div class="filter-brand">
+                <h4>Brands</h4>
+                <label><input type="checkbox" id="brand1" onchange="filterProducts()"> Chanel</label>
+                <label><input type="checkbox" id="brand2" onchange="filterProducts()"> Dior</label>
+                <label><input type="checkbox" id="brand3" onchange="filterProducts()"> Gucci</label>
+                <label><input type="checkbox" id="brand4" onchange="filterProducts()"> Tom Ford</label>
+                <label><input type="checkbox" id="brand8" onchange="filterProducts()"> Burberry</label>
+                <label><input type="checkbox" id="brand9" onchange="filterProducts()"> Versace</label>
+                <label><input type="checkbox" id="brand10" onchange="filterProducts()"> Hugo Boss</label>
+            </div>
+
+            <h4>Category</h4>
+            <div class="filter-category">
+                <label><input type="checkbox" id="men" onchange="filterProducts()"> Men</label>
+                <label><input type="checkbox" id="women" onchange="filterProducts()"> Women</label>
+                <label><input type="checkbox" id="unisex" onchange="filterProducts()"> Unisex</label>
+            </div>
+            
+            <h4>🏷️ Show Only</h4>
+            <label><input type="checkbox" id="sale" onchange="filterProducts()"> Sale</label><br>
+            <label><input type="checkbox" id="sold" onchange="filterProducts()"> Sold Out</label>
+            <br>
+            <br>
+            <button id="resetFilters" class="btn btn-secondary" onclick="resetFilters()">Reset Filters</button> 
+        </aside>
+        <section class="products" id="productList"></section>
+        <div class="no-products" id="noProductsFound" style="display: none;">No Products Found</div>
+    </div>
+    
+    <!-- Modal for Learn more -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" role="dialog" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalProductImage" src="" alt="" style="width: 200px; height: 200px;">
+                    <div>
+                        <h6 id="modalProductTitle"></h6>
+                        <p id="modalProductPrice"></p>
+                        <p id="modalProductRating"></p>
+                        <p id="modalProductDescription"></p>
+                        <button id="addToCartModalBtn" class="btn btn-outline-light" onclick="addProductToCartFromModal()">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "CHANEL N°5 - Parfum Spray - 100 ml",
+                category: "women",
+                price: 16750.00,
+                rating: 4.6,
+                star: "⭐⭐⭐⭐",
+                reviews: 20358,
+                brand: "Chanel",
+                image: "VanshAssets/p1C.jpg",
+                description: "Eau de Parfum · Spray · Women's · Travel Size",
+                sale: false
+            },
+            {
+                id: 2,
+                name: "DIOR J'adore Parfum D'eau Eau De - Parfum - 100ml",
+                category: "women",
+                price: 15300.00,
+                rating:4.3,
+                star:"⭐⭐⭐⭐",
+                reviews: 2200,
+                brand: "Dior",
+                image: "VanshAssets/p1D.jpg",
+                description: "Dior's First Fragrance • Unique formula • Matte opalescent white bottle.",
+                sale: false
+            },
+            {
+                id: 3,
+                name: "Bloom Eau De Parfum - 50ml",
+                category: "women",
+                price: 8450,
+                rating:4.1,
+                star:"⭐⭐⭐⭐",
+                reviews: 2259,
+                brand: "Gucci",
+                image: "VanshAssets/p1G.jpg",
+                description: "Gucci's Sophisticated Perfume for women • Authentic, diverse • Sophisticated.",
+                sale: false
+            },
+            {
+                id: 4,
+                name: "Tom Ford Black Orchid Eau De Toilette - Spray - 100ml",
+                category: "women",
+                price: 9499.00,
+                rating: 4.5,
+                star: "⭐⭐⭐⭐",
+                reviews: 3567,
+                brand: "Tom Ford",
+                image: "VanshAssets/p1T.jpg",
+                description: "Light,crisp,spicy,sweet. An oriental floral fragrance for contemporary women. ",
+                sale: false
+            },
+            {
+                id: 5,
+                name: "COCO MADEMOISELLE",
+                category: "women",
+                price: 12350.00,
+                rating: 5.0,
+                star: "⭐⭐⭐⭐⭐",
+                reviews: 3900,
+                brand: "Chanel",
+                image: "VanshAssets/p2C.jpg",
+                description: "The essence of a free and captivating woman.",
+                sale: false
+            },
+            {
+                id: 6,
+                name: "Sauvage By Christian Dior Eau De Toilette - Spray - 100ml",
+                category: "men",
+                price: 16450.00,
+                originalPrice: 19999.00,
+                rating: 4.5,
+                star: "⭐⭐⭐⭐",
+                reviews: 2930,
+                brand: "Dior",
+                image: "VanshAssets/p2D.jpg",
+                description: "Fresh top notes of Calabria bergamot encounter ambroxan, obtained from precious ambergris, and its woody trail.",
+                sale: true
+            },
+            {
+                id: 7,
+                name: "Guilty Eau De Toilette For Men - 150ml",
+                category: "men",
+                price: 10900.00,
+                rating: 4.5,
+                star: "⭐⭐⭐⭐",
+                reviews: 4530,
+                brand: "Gucci",
+                image: "VanshAssets/p2G.jpg",
+                description: "An Eau de Toilette for men that opens up on sparkling Italian Lemon while French Lavender vibrates in the heart to fall in the deep notes of Patchouli.",
+                sale: false,
+                sold: true
+            },
+            {
+                id: 8,
+                name: "Tom Ford Tobacco vanille -100ml",
+                category: "unisex",
+                price: 13749.00,
+                rating: 4.5,
+                star: "⭐⭐⭐⭐",
+                reviews: 9600,
+                brand: "Tom Ford",
+                image: "VanshAssets/p2T.jpg",
+                description: "Tobacco,Tobacco leaf,Tobacco blossom,Tonka bean.",
+                sale: false,
+                sold: true
+            },
+            {
+                id: 9,
+                name: "Burberry Her Eau De Parfum - 50ml",
+                category: "women",
+                price: 7250.00,
+                rating: 4.4,
+                star: "⭐⭐⭐⭐",
+                reviews: 4123,
+                brand: "Burberry",
+                image: "VanshAssets/p1B.jpg",
+                description: "Burberry Her Eau de Parfum is the embodiment of the Londoner attitude - adventurous, spirited and bold.",
+                sale: false
+            },
+            {
+                id: 10,
+                name: "BLEU DE CHANEL  - 100ml",
+                category: "men",
+                price: 16500.00,
+                rating: 5.0,
+                star: "⭐⭐⭐⭐⭐",
+                reviews: 450,
+                brand: "Chanel",
+                image: "VanshAssets/p3C.jpg",
+                description: "An ode to masculine freedom expressed in an aromatic-woody fragrance with a captivating trail",
+                sale: false
+            },
+            {
+                id: 11,
+                name: "CHRISTIAN DIOR Eau De Toilette - Spray - Miss Blooming Bouquet - 100ml",
+                category: "men",
+                price: 15995.00,
+                originalPrice: 18397.00,
+                rating: 4.0,
+                star: "⭐⭐⭐⭐",
+                reviews: 3280,
+                brand: "Dior",
+                image: "VanshAssets/p3D.jpg",
+                description: "A fragrance that speaks of the discerning gentleman's seduction.",
+                sale: true
+            },
+            {
+                id: 12,
+                name: "Burberry Brit For Her Eau De Toilette - 50ml - EDT",
+                category: "women",
+                price: 3999.00,
+                rating: 3.4,
+                star: "⭐⭐⭐",
+                reviews:5000,
+                brand: "Burberry",
+                image: "VanshAssets/p2B.jpg",
+                description: "BRIT FOR HER EDT 50ML- NEW DESIGN.",
+                sale: false
+            },
+            {
+                id: 13,
+                name: "Versace Eros Eau De Parfum - 100ml",
+                category: "men",
+                price: 10800.00,
+                originalPrice: 12000.00,
+                rating: 4.6,
+                star: "⭐⭐⭐⭐",
+                reviews: 2323,
+                brand: "Versace",
+                image: "VanshAssets/p2V.jpg",
+                description: "A unique aura, sensual on the skin, reassuringly virile these are the keys to the hymn of love announced by Eros, the triumphant and flamboyant seducer.",
+                sale: true
+            },
+            {
+                id: 14,
+                name: "Hugo Boss Nuit Pour Femme Perfume – 75ml",
+                category: "men",
+                price: 4999.00,
+                originalPrice: 6999.00,
+                rating: 4.2,
+                star: "⭐⭐⭐⭐",
+                reviews: 2122,
+                brand: "Hugo Boss",
+                image: "VanshAssets/p1H.jpg",
+                description: "BOSS Nuit pour femme was inspired by the Little Black Dress and what it stands for.",
+                sale: true
+            },
+            {
+                id: 15,
+                name: "Chanel Chance Edp Perfume - 100ml",
+                category: "women",
+                price: 3400.00,
+                rating: 2.8,
+                star: "⭐⭐",
+                reviews: 3600,
+                brand: "Chanel",
+                image: "VanshAssets/p4C.jpg",
+                description: "Chance Eau Tendre Eau De Parfum By Chanel Is A Floral Fruity Fragrance For Women.",
+                sale: false
+            },
+            {
+                id: 16,
+                name: "Dior Hypnotic Poison Eau De - Parfum - 100ml",
+                category: "women",
+                price: 15300.00,
+                rating: 4.4,
+                star: "⭐⭐⭐⭐",
+                reviews: 2330,
+                brand: "Dior",
+                image: "VanshAssets/p4D.jpg",
+                description: "Hypnotic Poison by Dior an amber vanilla fragrance for women, came out in 1998 as a flanker to Poison.",
+                sale: false
+            },
+            {
+                id: 17,
+                name: "Mémoire D’Une Odeur Eau De - Parfum - 40ml",
+                category: "men",
+                price: 6999.00,
+                rating: 4.0,
+                star: "⭐⭐⭐⭐",
+                reviews: 2132,
+                brand: "Gucci",
+                image: "VanshAssets/p4G.jpg",
+                description: "An elixir that transcends gender, Gucci Mémoire d’une Odeur establishes a new olfactive family, Mineral Aromatic.",
+                sale: false
+            },
+            {
+                id: 18,
+                name: "Tom Ford Oud Wood - EDP - 100ml",
+                category: "unisex",
+                price: 8999.00,
+                rating: 4.5,
+                star: "⭐⭐⭐⭐",
+                reviews: 10000,
+                brand: "Tom Ford",
+                image: "VanshAssets/p3T.jpg",
+                description: "Rosewood, Cardamom, Chinese pepper.",
+                sale: false
+            },
+            {
+                id: 19,
+                name: "GUCCI FLORA BY GUCCI-75ML-EAU DE - PARFUM - 75ml",
+                category: "women",
+                price: 8999.00,
+                originalPrice: 11989.00,
+                rating: 4.2,
+                star: "⭐⭐⭐⭐",
+                reviews: 2130,
+                brand: "Gucci",
+                image: "VanshAssets/p3G.jpg",
+                description: "GUCCI FLORA BY GUCCI-75ML-EAU DE PARFUM FOR #WOMEN ",
+                sale: true
+            },
+            {
+                id: 20,
+                name: "ALLURE HOMME SPORT EAU EXTRÊME - Parfum spray - 150ml",
+                category: "men",
+                price: 16800.00,
+                rating: 4.9,
+                star: "⭐⭐⭐⭐⭐",
+                reviews: 2100,
+                brand: "Chanel",
+                image: "VanshAssets/p5C.jpg",
+                description: "A fragrance that speaks of the discerning gentleman's seduction.",
+                sale: false,
+                sold: true
+            },
+            {
+                id: 21,
+                name: "Homme Intense Eau De - Parfum - 100ml",
+                category: "men",
+                price: 12400.00,
+                rating: 4.6,
+                star: "⭐⭐⭐⭐",
+                reviews: 1360,
+                brand: "Dior",
+                image: "VanshAssets/p5D.jpg",
+                description: "An Eau de Parfum that offers an unusual concentration for a smooth and intense fragrance.",
+                sale: false
+            },
+            {
+                id: 22,
+                name: "Bloom Ambrosia Di Fiori Eau De - Parfum Intense - 100ml",
+                category: "women",
+                price: 9250.00,
+                rating: 4.2,
+                star: "⭐⭐⭐⭐",
+                reviews: 1422,
+                brand: "Gucci",
+                image: "VanshAssets/p5G.jpg",
+                description: "Fragrance invites those who wear it to celebrate their true selves and the emotions they feel.",
+                sale: false
+            },
+            {
+                id: 23,
+                name: "Tom Ford Neroli Portofino Eau De - Perfume - 50 ml",
+                category: "men",
+                price: 15499.00,
+                rating: 4.5,
+                star: "⭐⭐⭐⭐",
+                reviews: 2123,
+                brand: "Tom Ford",
+                image: "VanshAssets/p4T.jpg",
+                description: "A fragrance that speaks of the discerning gentleman's seduction.",
+                sale: false
+            },
+            {
+                id: 24,
+                name: "My Burberry - 50ml - Eau De Parfum",
+                category: "men",
+                price: 5499.00,
+                rating: 4.7,
+                star: "⭐⭐⭐⭐",
+                reviews: 6523,
+                brand: "Burberry",
+                image: "VanshAssets/p3B.jpg",
+                description: "A fragrance that speaks of the discerning gentleman's seduction.",
+                sale: false
+            },
+            {
+                id: 25,
+                name: "Hugo Boss Boss The Scent - Eau De Toilette - 100Ml",
+                category: "men",
+                price: 3250.00,
+                rating: 4.2,
+                star: "⭐⭐⭐⭐",
+                reviews: 1431,
+                brand: "Versace",
+                image: "VanshAssets/p2H.jpg",
+                description: "It is an irresistible fragrance that invades the mind and leaves an enduring mark.",
+                sale: false
+            },
+            {
+                id: 26,
+                name: "Soleil Blanc Eau De Parfum By Tom Ford - Spray - 30ml",
+                category: "women",
+                price: 6099.00,
+                originalPrice: 7999.00,
+                rating: 4.2,
+                star: "⭐⭐⭐⭐",
+                reviews: 910,
+                brand: "Tom Ford",
+                image: "VanshAssets/p5T.jpg",
+                description: "Unexpected. Sultry. Addictive.",
+                sale: true
+            },
+            {
+                id: 27,
+                name: "Burberry Weekend - Eau De Parfum",
+                category: "women",
+                price: 7750.00,
+                rating: 4.3,
+                star: "⭐⭐⭐⭐",
+                reviews: 1312,
+                brand: "Burberry",
+                image: "VanshAssets/p5B.jpg",
+                description: "A fragrance that speaks of the discerning gentleman's seduction.",
+                sale: false
+            },
+            {
+                id: 28,
+                name: "Bright Crystal Eau De Toilette - 50ml",
+                category: "women",
+                price: 7250.00,
+                rating: 4.6,
+                star: "⭐⭐⭐⭐",
+                reviews: 1423,
+                brand: "Versace",
+                image: "VanshAssets/p1V.jpg",
+                description: "An Eau de Toilette for the Versace woman who is strong and sure of her charm, sensual and feminine and always glamorous.",
+                sale: false
+            },
+            {
+                id: 29,
+                name: "Tom Ford Noir",
+                category: "men",
+                price: 5199.00,
+                originalPrice: 8999.00,
+                rating: 3.9,
+                star: "⭐⭐⭐",
+                reviews: 5321,
+                brand: "Versace",
+                image: "VanshAssets/p3V.jpg",
+                description: "A fragrance that speaks of the discerning gentleman's seduction.",
+                sale: true
+            },
+            {
+                id: 30,
+                name: "BURBERRY Mr. EDP - 50ml",
+                category: "men",
+                price: 8250.00,
+                rating: 4.5,
+                star: "⭐⭐⭐⭐",
+                reviews: 1560,
+                brand: "Tom Ford",
+                image: "VanshAssets/p4B.jpg",
+                description: "Captures the essence & anticipation of London at nighttime. Fresh spicy smoky warm sophisticated & charismatic.",
+                sale: false,
+                sold: true
+            },
+        ];
+
+        let currentProduct;
+
+        function displayProducts(filteredProducts) {
+            const productList = document.getElementById("productList");
+            productList.innerHTML = '';
+            const noProductsFound = document.getElementById("noProductsFound");
+            productList.innerHTML = ''; 
+
+            if (filteredProducts.length === 0) {
+                noProductsFound.style.display = 'block'; 
+                return;
+            } 
+            else {
+                noProductsFound.style.display = 'none'; 
+            }
+
+            filteredProducts.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('product-item');
+                productItem.innerHTML = 
+                    `${product.sale ? '<div class="sale-tag">SALE</div>' : ''}
+                    ${product.sold ? '<div class="sold-tag">SOLD OUT</div>' : ''}
+                    <div class="image-container">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="product-price">
+                            ${product.sale && product.originalPrice ? `<span class="product-original-price"> ₹${product.originalPrice}</span>` : ''}
+                            ₹${product.price} 
+                        </div>
+                        <div class="product-rating">
+                            ${product.rating ? `${product.rating} ${product.star} ${product.reviews}` : ''}
+                        </div>
+                        <p>${product.description}</p>
+                        <button class="quick-view" onclick="showQuickView(${product.id})">Learn More...</button>
+                    </div>
+                    <div class="product-title">${product.name}</div>
+                    
+                    <button 
+                        class="add-to-cart-btn btn btn-outline-light" 
+                        data-name=${product.name} 
+                        data-price=${product.price} 
+                        data-image=${product.image}
+                        ${product.sold ? 'disabled' : ''}>
+                        ${product.sold ? 'Sold Out' : 'Add to Cart'}
+                    </button>`;
+
+                productList.appendChild(productItem);
+            });
+        }
+
+        displayProducts(products);
+
+        function showQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            currentProduct = product;
+
+            document.getElementById("modalProductImage").src = product.image;
+            document.getElementById("modalProductTitle").innerText = product.name;
+
+            let priceHTML = `Price: ₹${product.price}`;
+            if (product.sale && product.originalPrice) {
+                priceHTML += `<span class="product-original-price"> ₹${product.originalPrice}</span>`;
+            }
+            document.getElementById("modalProductPrice").innerHTML = priceHTML; 
+            document.getElementById("modalProductRating").innerText = `Rating: ${product.star} (${product.reviews} reviews)`;
+            document.getElementById("modalProductDescription").innerText = product.description;
+            
+            document.getElementById("addToCartModalBtn").innerText = product.sold ? 'Sold Out' : 'Add to Cart';
+            document.getElementById("addToCartModalBtn").disabled = product.sold;
+
+            $('#quickViewModal').modal('show');
+        }
+        
+        function addProductToCartFromModal() {
+            addToCart(currentProduct);
+        }
+
+        function filterProducts() {
+            const menChecked = document.getElementById('men').checked;
+            const womenChecked = document.getElementById('women').checked;
+            const unisexChecked = document.getElementById('unisex').checked;
+
+            let selectedPriceRanges = [];
+            if (document.getElementById('price1').checked) selectedPriceRanges.push(5000);
+            if (document.getElementById('price2').checked) selectedPriceRanges.push(10000);
+            if (document.getElementById('price3').checked) selectedPriceRanges.push(15000);
+            if (document.getElementById('price4').checked) selectedPriceRanges.push(20000);
+
+            const selectedRating = Array.from(document.querySelectorAll('input[name="rating"]:checked')).pop()?.value || null;
+
+            const brandChecks = [
+                { id: 'brand1', name: 'Chanel' },
+                { id: 'brand2', name: 'Dior' },
+                { id: 'brand3', name: 'Gucci' },
+                { id: 'brand4', name: 'Tom Ford' },
+                { id: 'brand8', name: 'Burberry' },
+                { id: 'brand9', name: 'Versace' },
+                { id: 'brand10', name: 'Hugo Boss' },
+            ];
+
+            let activeBrands = brandChecks.filter(brand => document.getElementById(brand.id).checked).map(brand => brand.name);
+            const saleChecked = document.getElementById('sale').checked;
+            const soldChecked = document.getElementById('sold').checked;
+
+            const filteredProducts = products.filter(product => {
+                const categoryMatch = (menChecked && product.category === 'men') ||
+                    (womenChecked && product.category === 'women') ||
+                    (unisexChecked && product.category === 'unisex') ||
+                    (!menChecked && !womenChecked && !unisexChecked);
+
+                const priceMatch = selectedPriceRanges.length === 0 || selectedPriceRanges.some(maxPrice => product.price <= maxPrice); 
+                const ratingMatch = selectedRating === null || product.rating >= selectedRating;
+                const brandMatch = activeBrands.length === 0 || activeBrands.includes(product.brand);
+                const saleMatch = !saleChecked || product.sale;
+                const soldMatch = !soldChecked || (product.sold === true);
+
+                return categoryMatch && priceMatch && ratingMatch && brandMatch && saleMatch && soldMatch;
+            });
+
+            displayProducts(filteredProducts);
+        }
+        
+        function resetFilters() {
+            const priceCheckboxes = document.querySelectorAll('.filter-price input[type="checkbox"]');
+            priceCheckboxes.forEach(checkbox => checkbox.checked = false);
+
+            const ratingRadios = document.querySelectorAll('.filter-rating input[name="rating"]');
+            ratingRadios.forEach(radio => radio.checked = false);
+
+            const checkboxes = document.querySelectorAll('.filters input[type="checkbox"]');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+
+            displayProducts(products);
+        }
+    </script>
+</body>
+</html>
