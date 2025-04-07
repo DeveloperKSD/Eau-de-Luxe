@@ -34,7 +34,7 @@ https://developerksd.github.io/Eau-de-Luxe/index.html
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/eau-de-luxe.git
+https://github.com/DeveloperKSD/Eau-de-Luxe.git
 
 
 ## 📸 Screenshots
